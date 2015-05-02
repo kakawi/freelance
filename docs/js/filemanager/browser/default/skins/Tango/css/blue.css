@@ -1,0 +1,25 @@
+body	{
+	background-color:#c2dcf8;
+}
+div.farea	{
+	border-color:#9cf;
+}
+.iblock {
+	border-color:#89b7e5;
+	background: #fff;
+	background: -moz-linear-gradient(top, #fff 0%, #e0efff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#e0efff));
+	background: -webkit-linear-gradient(top, #fff 0%,#e0efff 100%);
+	background: -o-linear-gradient(top, #fff 0%,#e0efff 100%);
+	background: -ms-linear-gradient(top, #fff 0%,#e0efff 100%);
+	background: linear-gradient(to bottom, #fff 0%,#e0efff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0efff',GradientType=0 );
+}
+select#cmbType, select#skinSel	{border-color:#9cf;}
+#eUploadMessage		{color:#69c;}
+table#tableFiles	{border-color:#89b7e5;}
+.odd		{background-color:#eef6ff;}
+.even		{background-color:#d5eaff;}
+td.tdrb		{border-color:#9cf;}
+#helpbox	{background-color:#def;border-color:#69d;}
+#helpbox h2	{background-color:#69d;color:#fff;}

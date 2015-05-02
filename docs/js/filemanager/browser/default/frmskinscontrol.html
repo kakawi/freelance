@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Темы оформления</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<link id="stylesheet" rel="stylesheet" type="text/css" href="skins/Fatcow/css/styles.css" media="screen">
+		<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+// 		document.getElementById("stylesheet").href="xxx.css";
+
+	function SetSkinSel()	{
+		var sSkins = document.getElementById('skinSel');
+		sSkins.innerHTML = '';
+		for ( var i = 0; i < Config.Skins.Skins.length; i++ )	{
+			if ( Config.Skins.Skins[i] == Config.Skins.Skin )	{
+				AddSelectOption( sSkins, Config.Skins.Skins[i], Config.Skins.Skins[i], true );
+				var defSkin = Config.Skins.Skins[i];
+			}
+			else
+				AddSelectOption( sSkins, Config.Skins.Skins[i], Config.Skins.Skins[i], false );
+		}
+		if (defSkin)
+			return defSkin;
+		else
+			return false;
+	}
+
+	window.onload = function()	{
+		Config = window.top.Config;
+		var Skin = SetSkinSel();
+		if (Skin)	window.top.SetSkin(Skin);
+	}
+</script>
+	</head>
+	<body>
+		<div class="iblock fp">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td nowrap><i class="icon32-skins" title="Skins"></i>&nbsp;</td>
+					<td valign="top">
+						Темы оформления<br>
+						<select id="skinSel" onchange="window.top.SetSkin(this.value);">
+							<option>&nbsp;
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

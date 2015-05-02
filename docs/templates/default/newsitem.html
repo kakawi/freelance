@@ -1,0 +1,29 @@
+                <div class="col_100">
+                    <div class="newsitem">
+                        <h2 style="height: 30px;">
+                            <span style="float: left;">{$newsitem.title}</span>
+                        </h2>
+                	    <img class="col_33 poster" src="{$templateWebPath}images/poster.jpg" />
+                        <div class="news_full_descr">
+                	        {$newsitem.description}
+                	    </div>
+                        <div style="height: 30px;">
+                	        <span class="newsdate">{$newsitem.whenadd}</span>
+                            <span style="float: right; margin-right: 10px;">
+							{literal}
+                            <script type="text/javascript">(function() {
+                              if (window.pluso)if (typeof window.pluso.start == "function") return;
+                              if (window.ifpluso==undefined) { window.ifpluso = 1;
+                                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                                var h=d[g]('body')[0];
+                                h.appendChild(s);
+                              }})();
+							</script>
+							{/literal}
+                            <div class="pluso" data-background="transparent" data-options="small,square,line,horizontal,nocounter,theme=04" data-services="vkontakte,facebook,twitter,google,email,print" data-url="http://{$siteurl}/news/{$newsitem.link}/" data-title="{$newsitem.title}" data-description="{$newsitem.small_description}"></div>
+                		  </span>
+                	  </div>
+                    </div>
+                </div>

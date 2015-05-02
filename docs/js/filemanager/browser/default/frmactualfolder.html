@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Путь к папке</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<link id="stylesheet" rel="stylesheet" type="text/css" href="skins/Fatcow/css/styles.css" media="screen">
+		<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+// Automatically detect the correct document.domain (#1919).
+(function()	{
+	var d = document.domain ;
+	while ( true )	{
+		// Test if we can access a parent property.
+		try	{
+			var test = window.top.opener.document.domain ;
+			break ;
+		}
+		catch( e ) {}
+
+		// Remove a domain part: www.mytest.example.com => mytest.example.com => example.com ...
+		d = d.replace( /.*?(?:\.|$)/, '' ) ;
+
+		if ( d.length == 0 )
+			break ;		// It was not able to detect the domain.
+
+		try	{
+			document.domain = d ;
+		}
+		catch (e)	{
+			break ;
+		}
+	}
+})() ;
+
+function SetCurrentFolder( resourceType, folderPath )	{
+	folderPath = oStore.getFolderPath( resourceType, folderPath );
+	var f = folderPath.split('/');
+	var f_count = f.length - 1;
+	var txt = '';
+	var path = '/';
+	for(i=1; i<f_count-1; i++) {
+		path += f[i]+'/';
+		txt += ' <a href="#" onClick="OpenFolder(\''+path+'\')">'+f[i]+'</a> /';
+	}
+	if (f_count==1)	{
+		var sType = 'open';
+		var aTypeList = ['file','image','flash','media'];
+		for (var i = 0; i < aTypeList.length; i++) {
+			if (resourceType.toLowerCase() == aTypeList[i])	{
+				sType = aTypeList[i];
+				break;
+			}
+		}
+	}
+	var up = f_count!=1 ? '<a href="#" onClick="OpenFolder(\''+path+'\')"><i class="icon32-folder_up"></i></a>' : '<i class="icon32-folder_' +sType+ '"></i>';
+	var root = f_count!=1 ? '<a href="#" onClick="OpenFolder(\'/\')"> '+resourceType+'</a>' : resourceType;
+	if (f_count>1)
+		txt += ' '+f[f_count-1]+' /';
+
+	// Сurrent Folder Block
+	document.getElementById('currentFolderPath').innerHTML = up + ' &nbsp; ' + root + ' /' + txt ;
+}
+
+function OpenFolder( folderPath )	{
+	// Load the resources list for this folder.
+	window.parent.frames['frmFolders'].LoadFolders( folderPath ) ;
+}
+
+
+window.onload = function()	{
+	window.top.IsLoadedActualFolder = true ;
+	Config = window.top.Config;
+}
+</script>
+	</head>
+	<body>
+		<div class="iblock fp">
+			<div id="currentFolderPath">&nbsp;</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /admin/
+Disallow: /images/
+Disallow: /templates/
+
+Sitemap: http://www.itcenter.me/sitemap.xml

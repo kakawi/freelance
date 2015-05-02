@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Закачка файла</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<link id="stylesheet" rel="stylesheet" type="text/css" href="skins/Fatcow/css/styles.css" media="screen">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/jif.js"></script>
+<script type="text/javascript">
+
+function SetCurrentFolder( resourceType, folderPath )	{
+	var sUrl = oConnector.ConnectorUrl + 'Command=FileUpload' ;
+	sUrl += '&Type=' + resourceType ;
+	sUrl += '&CurrentFolder=' + encodeURIComponent( folderPath ) ;
+
+	document.getElementById('frmUpload').action = sUrl ;
+	SetThumb(resourceType);
+}
+
+function OnSubmit()	{
+	if ( document.getElementById('NewFile').value.length == 0 )	{
+		alert( 'Пожалуйста выберите файл' ) ;
+		return false ;
+	}
+	// Set the interface elements.
+	document.getElementById('eUploadMessage').innerHTML = 'Загрузка нового файла в данную папку. Подождите...' ;
+	document.getElementById('btnUpload').disabled = true ;
+
+	return true ;
+}
+
+function OnUploadCompleted( errorNumber, data )	{
+	//alert(window.parent.frames['frmUploadWorker'].document.body.innerHTML);
+
+	// Reset the Upload Worker Frame.
+	window.parent.frames['frmUploadWorker'].location = 'javascript:void(0)' ;
+
+	// Reset the upload form (On IE we must do a little trick to avoid problems).
+	if ( document.all )
+		document.getElementById('NewFile').outerHTML = '<input id="NewFile" name="NewFile" style="width:100%" type="file">' ;
+	else
+		document.getElementById('frmUpload').reset() ;
+
+	// Reset the interface elements.
+	document.getElementById('eUploadMessage').innerHTML = 'Загрузить ' + document.getElementById('picfile').innerHTML + ' в данную папку' ;
+	document.getElementById('btnUpload').disabled = false ;
+
+	switch ( errorNumber )	{
+		case 0	:	window.parent.frames['frmResourcesList'].Refresh();	break;
+		case 1	:	alert(data);	break;	// Custom error.
+		case 201:	window.parent.frames['frmResourcesList'].Refresh(); alert('Файл с таким именем уже существует. Закачиваемый файл переименован в "' + data + '"');	break;
+		case 202:	alert('Недопустимый файл');	break ;
+		default	:	alert('Ошибка при закачивании. Номер ошибки: ' + errorNumber);	break;
+	}
+	// Reset Default FileInput
+	$('.jif-filename').html('Файл не выбран');
+	$('.jif-fbutton').removeClass('Button-active');
+}
+
+function SetThumb(type) {
+	if (Config.ThumbCreate && type == 'Image')	{
+		var picfile = 'новую картинку';
+		document.getElementById('thumb_box').style.display = 'table';
+		document.getElementById('dlIcon').innerHTML = '<i class="icon32-picture_add"></i>';
+	}
+	else	{
+		var picfile = 'новый файл';
+		document.getElementById('thumb_box').style.display = 'none';
+		document.getElementById('dlIcon').innerHTML = '<i class="icon32-page_add"></i>';
+	}
+	document.getElementById('eUploadMessage').innerHTML = 'Загрузить '+ picfile +' в данную папку' ;
+	document.getElementById('picfile').innerHTML = picfile;
+}
+
+function kp(evt) {
+	if (evt.keyCode==46 || evt.keyCode==8 || evt.keyCode==37 || evt.keyCode==39 || evt.keyCode==109) return true;
+	if (evt.keyCode<48 || evt.keyCode>57) return false;
+}
+
+window.onload = function()	{
+	window.top.IsLoadedUpload = true ;
+	Config = window.top.Config;
+}
+</script>
+	</head>
+	<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('input:file').jInputFile();
+	});
+</script>
+		<div class="iblock" style="padding:2px 10px;">
+			<form id="frmUpload" action="" target="frmUploadWorker" method="post" enctype="multipart/form-data" onsubmit="return OnSubmit();">
+			<table id="tblUpload" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1" nowrap class="tdpr tdpt" id="dlIcon">&nbsp;</td>
+					<td width="100%" class="tdrb">
+						<div id="eUploadMessage">&nbsp;</div>
+						<input id="NewFile" name="NewFile" type="file">
+					</td>
+					<td nowrap class="tdlb tdpl">
+						<table id="thumb_box" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+							<tr>
+								<td rowspan="2" nowrap class="tdpr tdpt"><i class="icon32-resize_pic" title="Размер изображения"></i></td>
+								<td nowrap title="Ширина картинки"><i class="icon-size_width"></i> <input type="text" id="thumb_x" name="thumb_x" value="100" onKeyDown="return kp(event)" style="width:30px"></td>
+								<td rowspan="2" nowrap><input type="checkbox" id="thumb" name="thumb"></td>
+								<td rowspan="2"><label for="thumb">изменить<br>размер</label></td>
+								<td rowspan="2" class="tdpr" valign="top"><i class="icon-help help" onclick="window.parent.frames['frmResourcesList'].openbox('helpbox');return false;"></i></td>
+							</tr>
+							<tr>
+								<td nowrap title="Высота картинки"><i class="icon-size_height"></i> <input type="text" id="thumb_y" name="thumb_y" value="0" onKeyDown="return kp(event)" style="width:30px"></td>
+							</tr>
+						</table>
+					</td>
+					<td width="1" nowrap>
+						<button class="Button" id="btnUpload" type="submit"><i class="icon-download"></i> Загрузить</button>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<span id="picfile" style="display:none;"></span>
+	</body>
+</html>

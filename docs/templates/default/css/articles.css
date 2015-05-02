@@ -1,0 +1,85 @@
+body {
+    background: #FEFDFC;
+}
+
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* Боковое меню (с категориями) */
+#sidebar {
+    box-sizing: border-box;
+    float: right;
+    box-shadow: 3px 3px 7px black;
+    padding: 5px;
+    width: 200px;
+
+}
+#sidebar a{
+    display: block;
+    text-decoration: none;
+    color: #ad6704;
+    font-size: 20px;
+}
+
+#sidebar a:hover{
+    color: #ada641;
+
+}
+
+#container{
+    margin-right: 200px;
+}
+
+/* стиль вывода анонса статьи + самой статьи */
+#container article{
+    padding-right: 10px;
+}
+
+
+#container article .title{
+    font-size: 25px;
+    color: #FFAD40;
+    background: rgba(37, 86, 123, 0.84);
+    padding: 3px 0 4px 5px;
+    border-radius: 9px;
+    margin-bottom: 3px;
+}
+
+#container article .title a{
+    font-size: 25px;
+    color: #FFAD40;
+    text-decoration: none;
+}
+
+#container article .link a{
+    font-size: 1.1em;
+    color: #A65F00;
+    text-decoration: none;
+    font-style: italic;
+}
+
+#container article .top div{
+    display: inline-block;
+    color: #AF6B10;
+    font-weight: bold;
+}
+
+#container article .top .hits{
+    margin-right: 30px;
+}
+
+/* Хлебные крошки */
+div.breadcrumbs {
+    margin-bottom: 3px;
+}
+div.breadcrumbs a{
+    color: #AF6B10;
+    text-decoration: none;
+}
+
+div.breadcrumbs a:hover{
+    color: #25567B;
+    text-decoration: none;
+}

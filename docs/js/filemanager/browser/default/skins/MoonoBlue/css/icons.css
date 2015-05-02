@@ -1,0 +1,58 @@
+[class^="icon"]	{
+	display:inline-block;
+	vertical-align:middle;
+	background-repeat:no-repeat;
+}
+[class^="icon-"] {
+	width:16px;
+	height:16px;
+	background-image: url('../images/icons.png');
+}
+[class^="icon32-"] {
+	width:32px;
+	height:32px;
+	background-image: url('../images/icons32.png');
+}
+.icon-default		{background-position: -8px -8px;}
+.icon-download		{background-position: -8px -40px;}
+.icon-file_app		{background-position: -8px -72px;}
+.icon-file_arch		{background-position: -8px -104px;}
+.icon-file_audio	{background-position: -8px -136px;}
+.icon-file_excel	{background-position: -8px -168px;}
+.icon-file_flash	{background-position: -8px -200px;}
+.icon-file_html		{background-position: -8px -232px;}
+.icon-file_oo		{background-position: -8px -264px;}
+.icon-file_pdf		{background-position: -8px -296px;}
+.icon-file_pic		{background-position: -8px -328px;}
+.icon-file_pp		{background-position: -8px -360px;}
+.icon-file_script	{background-position: -8px -392px;}
+.icon-file_text		{background-position: -8px -424px;}
+.icon-file_vector	{background-position: -8px -456px;}
+.icon-file_video	{background-position: -8px -488px;}
+.icon-file_word		{background-position: -8px -520px;}
+.icon-folder		{background-position: -8px -552px;}
+.icon-folder_add	{background-position: -8px -584px;}
+.icon-folder_open	{background-position: -8px -616px;}
+.icon-folder_up		{background-position: -8px -648px;}
+.icon-help			{background-position: -8px -680px;}
+.icon-resize_pic	{background-position: -8px -712px;}
+.icon-size			{background-position: -8px -744px;}
+.icon-size_height	{background-position: -8px -776px;}
+.icon-size_width	{background-position: -8px -808px;}
+.icon-skins			{background-position: -8px -840px;}
+
+.icon32-download		{background-position: -16px -16px;}
+.icon32-folder			{background-position: -16px -80px;}
+.icon32-folder_add		{background-position: -16px -144px;}
+.icon32-folder_file		{background-position: -16px -208px;}
+.icon32-folder_flash	{background-position: -16px -272px;}
+.icon32-folder_image	{background-position: -16px -336px;}
+.icon32-folder_media	{background-position: -16px -400px;}
+.icon32-folder_open		{background-position: -16px -464px;}
+.icon32-folder_up		{background-position: -16px -528px;}
+.icon32-page			{background-position: -16px -592px;}
+.icon32-page_add		{background-position: -16px -656px;}
+.icon32-picture			{background-position: -16px -720px;}
+.icon32-picture_add		{background-position: -16px -784px;}
+.icon32-resize_pic		{background-position: -16px -848px;}
+.icon32-skins			{background-position: -16px -912px;}

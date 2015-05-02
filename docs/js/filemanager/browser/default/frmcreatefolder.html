@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Создание папки</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<link id="stylesheet" rel="stylesheet" type="text/css" href="skins/Fatcow/css/styles.css" media="screen">
+		<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+function SetCurrentFolder( resourceType, folderPath )	{
+	oConnector.ResourceType = resourceType ;
+	oConnector.CurrentFolder = folderPath ;
+}
+
+function CreateFolder()	{
+	var sFolderName ;
+
+	while ( true )	{
+		sFolderName = prompt( 'Введите название новой папки:', '' ) ;
+
+		if ( sFolderName == null )
+			return ;
+		else if ( sFolderName.length == 0 )
+			alert( 'Пожалуйста введите название папки' ) ;
+		else
+			break ;
+	}
+
+	oConnector.SendCommand( 'CreateFolder', 'NewFolderName=' + encodeURIComponent( sFolderName) , CreateFolderCallBack ) ;
+}
+
+function CreateFolderCallBack( fckXml )	{
+	if (oConnector.CheckError( fckXml ) == 0)
+		window.parent.frames['frmResourcesList'].Refresh() ;
+/*
+	// Get the current folder path.
+	var oNode = fckXml.SelectSingleNode( 'Connector/Error' ) ;
+	var iErrorNumber = parseInt( oNode.attributes.getNamedItem('number').value ) ;
+
+	switch (iErrorNumber)	{
+		case 0 	:	window.parent.frames['frmResourcesList'].Refresh();	break;
+		case 101:	alert('Такая папка уже существует');	break;
+		case 102:	alert('Неверное имя папки');	break;
+		case 103:	alert('У вас нет прав на создание папки');	break;
+		case 110:	alert('Неизвестная ошибка при создании папки');	break;
+		default	:	alert('Ошибка при создании папки. Ошибка номер: ' + iErrorNumber );	break;
+	}
+*/
+}
+
+window.onload = function()	{
+	window.top.IsLoadedCreateFolder = true ;
+}
+</script>
+	</head>
+	<body>
+		<button type="button" style="width:100%;padding:5px 3px;line-height:36px;" onclick="CreateFolder();">
+			<i class="icon32-folder_add"></i> Новая папка
+		</button>
+	</body>
+</html>

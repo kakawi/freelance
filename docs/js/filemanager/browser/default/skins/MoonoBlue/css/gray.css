@@ -1,0 +1,25 @@
+body	{
+	background-color:#e2e2e2;
+}
+div.farea	{
+	border-color:#d0d0d0;
+}
+.iblock {
+	border-color:#b7b7b7;
+	background: #fff;
+	background: -moz-linear-gradient(top, #fff 0%, #efefef 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#efefef));
+	background: -webkit-linear-gradient(top, #fff 0%,#efefef 100%);
+	background: -o-linear-gradient(top, #fff 0%,#efefef 100%);
+	background: -ms-linear-gradient(top, #fff 0%,#efefef 100%);
+	background: linear-gradient(to bottom, #fff 0%,#efefef 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 );
+}
+select#cmbType, select#skinSel	{border-color:#ccc;}
+#eUploadMessage	{color:#777;}
+table#tableFiles	{border-color:#b7b7b7;}
+.odd		{background-color:#fcfcfc;}
+.even		{background-color:#f0f0f0;}
+td.tdrb		{border-color:#ccc;}
+#helpbox	{background-color:#eee;border-color:#9f9f9f;}
+#helpbox h2	{background-color:#9f9f9f;color:#fff;}

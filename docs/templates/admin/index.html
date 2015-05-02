@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1">
+<title>Центр IT Решений</title>
+</head>
+<body>
+	<div class="window-1">
+		<div class="window-bg">
+			<div class="window">
+				<div class="zaglav-win">
+					<h2>Удалить раздел?</h2>
+					<input type="button" class="close" />
+				</div>
+				<div class="choose">
+					<input type="button" class="accept" value="Удалить"/>
+					<input type="button" class="cancel" value="Отменить" />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="window-2">
+		<div class="window-bg">
+			<div class="window">
+				<div class="zaglav-win">
+					<h1>Добавить раздел</h1>
+					<input type="button" class="close" />
+				</div>
+				<div class="edit-raz">
+					<form>
+						<input type="text" placeholder="Название раздела"/>
+						<input type="text" />
+							<!--
+								<div class="file">
+									<img src="images/file.png" />
+									<h3>Нет файла...</h3>
+									<input type="button" value="Выбрать файл"/>
+								</div>
+							-->
+							<div class="choosen-file">
+								<div class="file">
+									<img src="images/choosen-file.png" />
+									<h3>services.png</h3>
+									<input type="button" value="Заменить"/>
+								</div>
+								<input type="button" class="del-file" />
+							</div>
+					</form>
+				</div>	
+				<div class="choose">
+					<input type="button" class="accept" value="Добавить"/>
+					<input type="button" class="cancel" value="Отменить" />
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+	<div class="header-bg">
+		<div class="header">
+			<div class="header-left">
+				<h1><a href="#">Центр IT Решений</a>Раздел администратора</h1>
+			</div>
+			<div class="header-right">
+				<a>
+					<img src="images/profile-face.png" />
+					<h2>Здравствуйте Алексей</h2>
+					<img src="images/arrow-sel.png" class="arrow-sel"/>
+				</a>
+				<div class="profile-window">
+					<img src="images/arrow-top.png" class="arrow-top"/>
+					<ul>
+						<a>
+							<li>
+								<img src="images/option.png" />
+								<h3>Настройки</h3>
+							</li>
+						</a>
+						<a>
+							<li>
+								<img src="images/lichno.png" />
+								<h3>Личные данные</h3>
+							</li>
+						</a>
+						<a>
+							<li>
+								<img src="images/exit.png" />
+								<h3>Выход</h3>
+							</li>
+						</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="karkas">
+		<div class="header-menu">
+			<div class="fire-btn">
+				<ul>
+					<a>
+						<li></li>
+					</a>
+					<a>
+						<li></li>
+					</a>
+					<a class="active">
+						<li></li>
+					</a>
+					<a>
+						<li></li>
+					</a>
+					<a>
+						<li></li>
+					</a>
+				</ul>
+			</div>
+			
+			<div class="place-block">
+				<ul>
+					<li><img src="images/home.png"/></li>
+					<li><a href="#"><h3>Главная</h3></a></li>
+					<li><img src="images/arrow-right.png"/></li>
+					<li><h3>Разделы сайта</h3></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="content">
+			<div class="content-left">
+				<ul>
+					<a href="#" class="active-menu">
+						<li class="cite">
+							<div class="icon"></div>
+							<h2>Разделы сайта</h2>
+							<img src="images/arrow-act.png"/>
+						</li>
+					</a>
+					<a href="#">
+						<li class="yslugi">
+							<div class="icon"></div>
+							<h2>Услуги</h2>
+							<img src="images/arrow-act.png"/>
+						</li>
+					</a>
+					<a href="#">
+						<li class="portfolio">
+							<div class="icon"></div>
+							<h2>Портфолио</h2>
+							<img src="images/arrow-act.png"/>
+						</li>
+					</a>
+					<a href="#">
+						<li class="otz">
+							<div class="icon"></div>
+							<h2>Отзывы</h2>
+							<img src="images/arrow-act.png"/>
+						</li>
+					</a>
+				</ul>
+			</div>
+			
+			<div class="content-right">
+				<div class="zaglav">
+					<h1>Разделы сайта</h1>
+					<input type="button" value="Добавить" />
+				</div>
+				
+				<div class="table-cite">
+					<table>
+						<thead>
+							<tr>
+								<th><h3>Название раздела</h3></th>
+								<th><h3>Ссылка на сайте</h3></th>
+								<th><h3>Иконка</h3></th>
+								<th colspan="2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr  class="odd">
+								<td><a href="#"><h3>Для бизнеса</h3></a></td>
+								<td><h3>www.itcenter.me/business/</h3></td>
+								<td><img src="images/icon.png"></td>
+								<td>
+									<input type="button" class="edit-btn" /> 
+									<input type="button" class="delete-btn" />
+								</td>
+							</tr>
+							<tr>
+								<td><a href="#"><h3>Услуги</h3></a></td>
+								<td><h3>www.itcenter.me/business/</h3></td>
+								<td><img src="images/icon.png"></td>
+								<td>
+									<input type="button" class="edit-btn" /> 
+									<input type="button" class="delete-btn" />
+								</td>
+							</tr>
+							<tr  class="odd">
+								<td><a href="#"><h3>Услуги</h3></a></td>
+								<td><h3>www.itcenter.me/business/</h3></td>
+								<td><img src="images/icon.png"></td>
+								<td>
+									<input type="button" class="edit-btn" /> 
+									<input type="button" class="delete-btn" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="footer">
+					<h2>
+						<a href="http://hestia.itcenter.me">Центр IT Решений</a></br>
+						Раздел администратора © 2014
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
